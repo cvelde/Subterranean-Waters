@@ -36,12 +36,6 @@ public class ModGenerator {
 
 	public void generate(ChunkPrimer primer, World world, Random random, int chunkX, int chunkZ,
 			IChunkGenerator generator) {
-		
-		//possibly dirty evil kludge to implement a chance to generate and I'm not sure how it's gonna play out
-		// -- Kreezxil 8 19 2019
-		
-		int chance = (int)Math.random() * 100;
-		if(chance>ModConfig.chanceGenerate) return;
 	
 		if (ArrayUtils.contains(ModConfig.dimensions, world.provider.getDimension())) {
 
@@ -65,18 +59,18 @@ public class ModGenerator {
 	}
 
 	private void initNoise(int shiftX, int shiftY, int shiftZ, int sizeX, int sizeY, int sizeZ) {
-		double noiseScaleHorisontal = 684.412D * 2.0D;
+		double noiseScaleHorizontal = 684.412D * 2.0D;
 		double noiseScaleVertical = 684.412D;
 
 		tempArrayStoneMask = noiseGenStoneMask.generateNoiseOctaves(tempArrayStoneMask, shiftX, shiftY, shiftZ, sizeX,
-				sizeY, sizeZ, noiseScaleHorisontal / 80.0D, noiseScaleVertical / 160.0D, noiseScaleHorisontal / 80.0D);
+				sizeY, sizeZ, noiseScaleHorizontal / 80.0D, noiseScaleVertical / 160.0D, noiseScaleHorizontal / 80.0D);
 		tempArrayStoneMask2 = noiseGenStoneMask2.generateNoiseOctaves(tempArrayStoneMask2, shiftX, shiftY, shiftZ,
-				sizeX, sizeY, sizeZ, noiseScaleHorisontal / 80.0D, noiseScaleVertical / 160.0D,
-				noiseScaleHorisontal / 80.0D);
+				sizeX, sizeY, sizeZ, noiseScaleHorizontal / 80.0D, noiseScaleVertical / 160.0D,
+				noiseScaleHorizontal / 80.0D);
 		tempArrayStone1 = noiseGenStone1.generateNoiseOctaves(tempArrayStone1, shiftX, shiftY, shiftZ, sizeX, sizeY,
-				sizeZ, noiseScaleHorisontal / 2, noiseScaleVertical / 2, noiseScaleHorisontal / 2);
+				sizeZ, noiseScaleHorizontal / 2, noiseScaleVertical / 2, noiseScaleHorizontal / 2);
 		tempArrayStone2 = noiseGenStone2.generateNoiseOctaves(tempArrayStone2, shiftX, shiftY, shiftZ, sizeX, sizeY,
-				sizeZ, noiseScaleHorisontal / 2, noiseScaleVertical / 2, noiseScaleHorisontal / 2);
+				sizeZ, noiseScaleHorizontal / 2, noiseScaleVertical / 2, noiseScaleHorizontal / 2);
 
 		int k = 0;
 

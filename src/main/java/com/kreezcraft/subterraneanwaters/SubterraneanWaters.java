@@ -43,8 +43,7 @@ public class SubterraneanWaters {
 		String[] parts = theBiome.getRegistryName().splitObjectName(theBiome.getRegistryName().toString());
 		biomeName = parts[1];
 
-		if (!ArrayUtils.contains(exclusion, biomeName))
-			generator.generate(event.getPrimer(), event.getWorld(), new Random(event.getWorld().getSeed()),
-					event.getX(), event.getZ(), event.getGenerator());
+		generator.generate(event.getPrimer(), event.getWorld(), new Random(event.getWorld().getSeed()),
+				event.getX(), event.getZ(), event.getGenerator());
 	}
 }
