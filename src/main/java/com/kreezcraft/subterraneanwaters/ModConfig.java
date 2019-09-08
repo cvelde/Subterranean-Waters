@@ -64,11 +64,13 @@ public class ModConfig {
 
 			lowLimit = config.getInt("LowLimit", "GenerationVariables", 3, 1, 33,
 					"Height at which noise value begins to halt.");
+
 			lowOverheadLimit = config.getInt("LowOverheadLimit", "GenerationVariables", 3, 1, 32,
 					"Height at which noise is guaranteed to halt.");
 
 			highLimit = config.getInt("HighLimit", "GenerationVariables", 4, 0, 32,
 					"Height at which noise value begins to halt.");
+
 			highOverheadLimit = config.getInt("HighOverheadLimit", "GenerationVariables", 18, 1, 32,
 					"Height at which noise is guaranteed to halt.");
 
